@@ -7,7 +7,7 @@ r = requests.get("https://champagneproxy.github.io/webscraping/example.html")
 
 soup = bs(r.content, features="html5lib")
 
-headers = soup.find_all("h2")
+headers = soup.find_all(["h1", "h2"])
 print(headers)
 
 #Pretty prints out our html
