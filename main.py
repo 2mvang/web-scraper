@@ -2,23 +2,51 @@ import requests
 import re
 from bs4 import BeautifulSoup as bs
 
-r = requests.get("https://www.youtube.com/c/garyvee/videos")
+r = requests.get("https://champagneproxy.github.io/webscraping/example.html")
 #print(r.content)
 
 soup = bs(r.content, features="html5lib")
 
-headers = soup.find_all("yt-formatted-string")
-print(headers)
+# HTML SELECTION
+
+# headers = soup.find_all(["h1","h2"])
+# print(headers)
 
 # paragraph = soup.find_all("p", attrs={"id": "paragraph-id"})
 # print(paragraph)
 
 # body = soup.find('body')
 # div = body.find('div')
-# page = div.find('ytd-page-manager')
-# header = div.find('h3')
-# # title = header.find('a', attrs={"id": "video-title"})
+# header = div.find('h1')
 # print(header)
+
+# bolded_paragraphs = soup.find_all("p", string=re.compile("bolded"))
+# print(bolded_paragraphs)
+
+# headers = soup.find_all("h2", string=re.compile("Header"))
+# print(headers)
+
+# headers_re = soup.find_all("h2", string=re.compile("(H|h)eader"))
+# print(headers_re)
+
+# CSS SELECTION
+
+# content = soup.select("p")
+# print(content)
+
+# content = soup.select("div p")
+# print(content)
+
+# content = soup.select("body ~ p") # what does the ~ do?
+# print(content)
+
+# paragraphs = soup.select("body > p")
+#
+# for paragraph in paragraphs:
+#     print(paragraph.select("i")) # only prints out the italisized stuff
+
+# centered_stuff = soup.select("[align=middle]")
+# print(centered_stuff)
 
 #Pretty prints out our html
 #print(soup.prettify())
