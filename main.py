@@ -40,10 +40,10 @@ soup = bs(r.content, features="html5lib")
 # content = soup.select("body ~ p") # what does the ~ do?
 # print(content)
 
-# paragraphs = soup.select("body > p")
-#
-# for paragraph in paragraphs:
-#     print(paragraph.select("i")) # only prints out the italisized stuff
+paragraphs = soup.select("body > p")
+
+for paragraph in paragraphs:
+    print(paragraph.select("i")) # only prints out the italisized stuff
 
 # centered_stuff = soup.select("[align=middle]")
 # print(centered_stuff)
@@ -58,7 +58,7 @@ soup = bs(r.content, features="html5lib")
 # link = soup.find("a")
 # print(link['href'])
 
-print(soup.body.div.h1.string) #print the string in the h1 located in the div which is located in thet
+# print(soup.body.div.h1.string) #print the string in the h1 located in the div which is located in thet
 
 #Pretty prints out our html
 #print(soup.prettify())
